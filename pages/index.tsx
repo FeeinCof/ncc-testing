@@ -4,9 +4,9 @@ import Head from "next/head";
 import type { ReactElement } from "react";
 import type { NextPageWithLayout } from "./_app";
 import { ParagraphGroup } from "@/src/components";
-import Image1 from "@/src/assets/images/Item1.png";
-import Image2 from "@/src/assets/images/Item2.png";
-import Image3 from "@/src/assets/images/Item3.png";
+import Image1 from "@/src/assets/images/item1.png";
+import Image2 from "@/src/assets/images/item2.png";
+import Image3 from "@/src/assets/images/item3.png";
 
 const News: NextPageWithLayout = () => {
   const paragraphs = [
