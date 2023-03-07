@@ -1,11 +1,34 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from "@/styles/Home.module.css";
+import { DefaultLayout } from "@/src/layouts";
+import Head from "next/head";
+import type { ReactElement } from "react";
+import type { NextPageWithLayout } from "./_app";
+import { ParagraphGroup } from "@/src/components";
+import Image1 from "@/src/assets/images/Item1.png";
+import Image2 from "@/src/assets/images/Item2.png";
+import Image3 from "@/src/assets/images/Item3.png";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const News: NextPageWithLayout = () => {
+  const paragraphs = [
+    {
+      src: Image1,
+      title: "Lorem ipsum dolor sit asmet?",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut, posuere felis. Donec imperdiet suscipit accumsan. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices liquam egestas nunc at ullamcorper ultricies. Donec feugiat velit nulla, vel sodales est ullamcorper id. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices vestibulum mattis.",
+    },
+    {
+      src: Image2,
+      title: "Lorem ipsum dolor sit asmet?",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut, posuere felis. Donec imperdiet suscipit accumsan. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices liquam egestas nunc at ullamcorper ultricies. Donec feugiat velit nulla, vel sodales est ullamcorper id. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices vestibulum mattis.",
+    },
+    {
+      src: Image3,
+      title: "Lorem ipsum dolor sit asmet?",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non dui sodales, faucibus libero ut, posuere felis. Donec imperdiet suscipit accumsan. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices liquam egestas nunc at ullamcorper ultricies. Donec feugiat velit nulla, vel sodales est ullamcorper id. Aenean consequat condimentum velit ut tempor. Nam porta massa in metus bibendum congue. Pellentesque ultrices vestibulum mattis.",
+    },
+  ];
   return (
     <>
       <Head>
@@ -14,110 +37,49 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
+      <main className={styles.wrapper}>
+        <div className={`${styles.inner} `}>
+          <div className={`${styles.logo}`}></div>
+        </div>
+        <div
+          className={`${styles.inner}`}
+          style={{
+            background: "#EFEFEF",
+          }}
+        >
+          <div className={styles.description}>
+            <p className={`text_normal bold`}>Lorem ipsum dolor sit asmet?</p>
+            <p className={`text_small`}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              tristique consequat placerat. Vestibulum auctor pellentesque sem,
+              eu posuere erat hendrerit quis. Maecenas vel consequat turpis. Nam
+              facilisis, ligula in mattis sodales, augue justo tristique nulla,
+              sed lacinia ante eros ut mi. Morbi vitae diam augue. Aliquam vel
+              mauris a nibh auctor commodo. Praesent et nisi eu justo eleifend
+              convallis. Quisque suscipit maximus vestibulum. Phasellus congue
+              mollis orci, sit amet luctus augue tristique eu. Donec vulputate
+              odio neque, sed semper turpis pellentesque a.
+            </p>
+          </div>
+        </div>
+        <div className={`${styles.inner} ${styles.parasGrid}`}>
+          {paragraphs &&
+            paragraphs.map((item, index) => (
+              <ParagraphGroup
+                image={item.src}
+                title={item.title}
+                text={item.content}
+                key={index}
               />
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
+            ))}
         </div>
       </main>
     </>
-  )
-}
+  );
+};
+
+News.getLayout = function getLayout(page: ReactElement) {
+  return <DefaultLayout>{page}</DefaultLayout>;
+};
+
+export default News;

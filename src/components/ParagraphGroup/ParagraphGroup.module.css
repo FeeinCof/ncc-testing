@@ -1,0 +1,16 @@
+.wrapper {
+  width: 100%;
+  display: inline;
+}
+
+.content {
+  align-items: flex-start;
+  text-align: start;
+}
+
+.image {
+  float: left;
+  width: 124px;
+  height: 124px;
+  margin-right: 20px;
+}
